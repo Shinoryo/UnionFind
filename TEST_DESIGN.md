@@ -1,4 +1,4 @@
-﻿# Union Find Test Case Design Document
+# Union Find Test Case Design Document
 
 ## Overview
 
