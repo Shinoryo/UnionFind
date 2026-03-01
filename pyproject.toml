@@ -1,4 +1,46 @@
-﻿[tool.ruff]
+﻿[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "UnionFind"
+version = "1.0.0"
+description = "Union-Find (Disjoint Set Union) implementation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "UnionFind contributors" }]
+keywords = ["union-find", "disjoint-set", "algorithm", "data-structure"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries",
+]
+
+[project.urls]
+Source = "https://example.com"
+Issues = "https://example.com/issues"
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
 exclude = [
     ".bzr",
     ".direnv",
@@ -25,17 +67,17 @@ exclude = [
 ]
 line-length = 88
 indent-width = 4
-target-version = "py311"
+target-version = "py39"
 
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = ["BLE001", "D", "INP001", "T201", "TRY401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["PT011", "PLR2004", "S101"]
 
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
 skip-magic-trailing-comma = false
 line-ending = "cr-lf"
-
-[tool.ruff.lint.per-file-ignores]
-"tests/*" = ["PT011", "S101", "PLR2004"]
